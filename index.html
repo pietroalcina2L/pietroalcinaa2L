@@ -1,0 +1,53 @@
+<!-- Programa: Circulos Animados
+Nome: David Nicetto - Nº: 05  - Turma: 2°L
+Nome: David Wilson - Nº: 06  - Turma: 2°L
+Nome: Jorge Vinicius - Nº: 16 - Turma: 2°L
+Nome: Pietro Lopes - Nº: 22 - Turma: 2°L
+Nome: Henrique Cavalcante - N°: 29 -  Turma 2°L
+
+Descrição: Dois circulos se cruzando.
+-->  y
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>  Círculos Animados </title>
+</head>
+<body>
+    <script>
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = 400;
+        document.body.appendChild(canvas);
+
+        const circles = [
+            { x: 30, y: 30, dx: 1, dy: 1, color: 'yellow' },
+            { x: 370, y: 370, dx: -1, dy: -1, color: 'blue' }
+        ];
+
+        setInterval(() => {
+            ctx.fillStyle = 'purple';
+            ctx.fillRect(0, 0, 400, 400);
+
+            // Atualiza e desenha o círculo amarelo
+            let yellow = circles[0];
+            yellow.x += yellow.dx;
+            yellow.y += yellow.dy;
+            ctx.fillStyle = yellow.color;
+            ctx.beginPath();
+            ctx.arc(yellow.x, yellow.y, 25, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Atualiza e desenha o círculo azul
+            let blue = circles[1];
+            blue.x += blue.dx;
+            blue.y += blue.dy;
+            ctx.fillStyle = blue.color;
+            ctx.beginPath();
+            ctx.arc(blue.x, blue.y, 25, 0, Math.PI * 2);
+            ctx.fill();
+        }, 20);
+    </script>
+</body>
+</html>
